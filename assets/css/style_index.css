@@ -110,3 +110,46 @@ h4 {
 #hero p {
   align-self: center;
 }
+
+/* COURSE INFO */
+
+/* section */
+#course {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 0 12.5%;
+  height: 609px;
+}
+/* children */
+#course * {
+  color: black;
+}
+/* images */
+#course .images {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "img1 img2"
+    "img3 img3";
+  align-items: center;
+}
+#course .images :nth-child(1) {
+  grid-area: img1;
+  align-self: end;
+}
+#course .images :nth-child(2) {
+  grid-area: img2;
+  align-self: end;
+}
+#course .images :nth-child(3) {
+  grid-area: img3;
+  align-self: start;
+}
+#course img {
+  width: 100%;
+  object-fit: cover;
+}
