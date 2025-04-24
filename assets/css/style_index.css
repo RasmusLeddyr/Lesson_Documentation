@@ -1,6 +1,9 @@
 /* GLOBAL VARIABLES */
 :root {
   --col_action: #e7be7e;
+  --col_back1: #e5dfd7;
+  --col_back2: #435061;
+  --col_text: #3d3d3d;
 }
 
 /* DEFAULTS */
@@ -13,7 +16,6 @@
   padding: 0%;
   font-size: 16px;
   font-weight: 100;
-  color: white;
   font-family: "Noto Sans";
 }
 /*font sizes*/
@@ -32,7 +34,30 @@ h4 {
 
 /* HERO SECTION */
 
-/* nav bar */
+/*main*/
+#hero {
+  position: relative;
+  background-image: url("../img/Hero.png");
+  background-size: cover;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+#hero * {
+  position: relative;
+  color: white;
+}
+/*background colour*/
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(67, 80, 97, 0.6);
+}
+/*nav bar*/
 #hero nav {
   display: flex;
   padding: 38px 0px;
@@ -43,7 +68,7 @@ h4 {
   margin-left: auto;
   margin-right: auto;
 }
-/* nav logo */
+/*nav logo*/
 #hero .logo {
   max-width: 258px;
 }
@@ -51,7 +76,7 @@ h4 {
   width: 100%;
   height: 100%;
 }
-/* nav list */
+/*nav list*/
 #hero nav ul {
   display: flex;
   gap: 43px;
@@ -72,35 +97,13 @@ h4 {
 #hero nav ul li:hover::after {
   opacity: 1;
 }
-/* nav button */
+/*nav button*/
 #hero nav .button {
   background-color: var(--col_action);
   color: black;
   padding: 13px 35px;
 }
-/* background */
-#hero {
-  position: relative;
-  background-image: url("../img/Hero.png");
-  background-size: cover;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-}
-/* background colour */
-#hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(67, 80, 97, 0.6);
-}
-#hero * {
-  position: relative;
-}
-/* text */
+/*text*/
 #hero h1 {
   align-self: center;
   margin-top: 128px;
@@ -113,20 +116,29 @@ h4 {
 
 /* COURSE INFO */
 
-/* section */
+/*main*/
 #course {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 32px;
-  padding: 0 12.5%;
-  height: 609px;
+  padding: 64px 12.5vw;
 }
-/* children */
 #course * {
-  color: black;
+  color: var(--col_text);
 }
-/* images */
+/*text*/
+#course h2 {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+#course p:nth-of-type(1) {
+  font-weight: bold;
+}
+#course p:nth-of-type(-n + 2) {
+  margin-bottom: 32px;
+}
+/*images*/
 #course .images {
   display: grid;
   gap: 24px;
@@ -152,4 +164,176 @@ h4 {
 #course img {
   width: 100%;
   object-fit: cover;
+}
+
+/* SCHOOL INFO */
+
+/*main*/
+#school * {
+  color: var(--col_text);
+}
+#school {
+  background-color: var(--col_back1);
+  padding: 64px 12.5vw;
+  text-align: center;
+}
+/*text*/
+#school h2 {
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+#school p {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+/*fields*/
+#school .field {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 32px 0;
+}
+#school .field::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--col_back2);
+  opacity: 0.25;
+}
+#school .field h3 {
+  font-weight: bold;
+  align-self: center;
+}
+#school .field button {
+  background-color: white;
+  padding: 8px 16px;
+}
+
+/* EXPERIENCE */
+
+/*main*/
+#experience {
+  background-color: var(--col_back2);
+  padding: 64px 12.5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "left right";
+}
+#experience * {
+  color: white;
+}
+/*text*/
+#experience h2 {
+  grid-area: header;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+/*articles*/
+#experience .left {
+  grid-area: left;
+}
+#experience .right {
+  grid-area: right;
+}
+/*article text*/
+#experience h3 {
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+#experience p {
+  margin-bottom: 24px;
+}
+
+/* APPLY */
+
+/*main*/
+#apply {
+  padding: 64px 12.5vw;
+  background-color: var(--col_action);
+}
+/*text*/
+#apply h2 {
+  color: var(--col_back2);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+#apply p {
+  color: var(--col_back2);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 48px;
+}
+/*grid*/
+#apply .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  grid-template-areas:
+    "name mail"
+    "bday school"
+    "text text"
+    "send send";
+}
+#apply .container :nth-child(1) {
+  grid-area: name;
+}
+#apply .container :nth-child(2) {
+  grid-area: mail;
+}
+#apply .container :nth-child(3) {
+  grid-area: bday;
+}
+#apply .container :nth-child(4) {
+  grid-area: school;
+}
+#apply .container :nth-child(5) {
+  grid-area: text;
+  min-height: 128px;
+}
+#apply .container :nth-child(6) {
+  grid-area: send;
+  background-color: var(--col_text);
+  border: 0;
+  color: white;
+  padding: 8px;
+}
+/*box design*/
+#apply input,
+#apply textarea {
+  padding: 4px 8px;
+  border: var(--c) solid 1px;
+  color: rgb(0, 0, 0);
+}
+#apply input::placeholder,
+#apply textarea::placeholder {
+  color: black;
+}
+
+/* FOOTER */
+
+/*main*/
+footer {
+  padding: 64px 12.5vw;
+  background-color: var(--col_back1);
+}
+/*container*/
+footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/*text*/
+footer h2 {
+  margin-bottom: 24px;
+}
+footer h2,
+footer p {
+  color: var(--col_back2);
+  font-weight: bold;
 }
