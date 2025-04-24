@@ -1,4 +1,9 @@
-/* defaults */
+/* GLOBAL VARIABLES */
+:root {
+  --col_action: #e7be7e;
+}
+
+/* DEFAULTS */
 *,
 *::before,
 *::after {
@@ -10,6 +15,19 @@
   font-weight: 100;
   color: white;
 }
+/*font sizes*/
+h1 {
+  font-size: 56px;
+}
+h2 {
+  font-size: 35px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 16px;
+}
 
 /* HERO SECTION */
 
@@ -18,6 +36,7 @@
   display: flex;
   padding: 38px 0px;
   align-items: center;
+  flex-wrap: wrap;
 }
 #hero nav * {
   margin-left: auto;
@@ -34,6 +53,29 @@
 /* nav list */
 #hero nav ul {
   display: flex;
+  gap: 43px;
+}
+#hero nav ul li {
+  position: relative;
+}
+#hero nav ul li::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  transform: translateY(3px);
+  background-color: var(--col_action);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#hero nav ul li:hover::after {
+  opacity: 1;
+}
+/* nav button */
+#hero nav .button {
+  background-color: var(--col_action);
+  color: black;
+  padding: 13px 35px;
 }
 /* background */
 #hero {
