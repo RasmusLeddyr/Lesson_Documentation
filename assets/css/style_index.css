@@ -188,24 +188,11 @@ h4 {
 }
 /*fields*/
 #school .field {
-  position: relative;
-  padding: 32px 0;
-  display: flex;
-  flex-direction: column;
 }
-#school .field::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--col_back2);
-  opacity: 0.25;
-}
-#school .field article {
-  display: none;
-}
+/*field headers*/
 #school .field header {
+  padding: 16px 16px;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -217,6 +204,51 @@ h4 {
 #school .field header button {
   background-color: white;
   padding: 8px 16px;
+  border: 2px solid black;
+}
+#school .field header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--col_back2);
+  opacity: 0.25;
+}
+/*field article*/
+#school .field article {
+  display: none;
+  padding: 32px 16px;
+  text-align: left;
+}
+#school .field article h4 {
+  color: white;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+#school .field article p {
+  color: white;
+  font-weight: lighter;
+}
+/*field open*/
+#school .field.open {
+  background-color: var(--col_back2);
+}
+#school .field.open header::after {
+  background-color: var(--col_action);
+  opacity: 1;
+}
+#school .field.open header h3 {
+  color: var(--col_action);
+}
+#school .field.open header button {
+  background-color: var(--col_action);
+  padding: 8px 16px;
+  border: 2px solid white;
+}
+#school .field.open article {
+  display: block;
 }
 
 /* EXPERIENCE */
